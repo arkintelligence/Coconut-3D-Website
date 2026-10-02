@@ -1,0 +1,77 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+body.is-locked { overflow: hidden; }
+img, svg, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+input, textarea, select { font: inherit; color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+::selection { background: var(--palm); color: var(--cream); }
+
+:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; border-radius: 2px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: fixed; left: 1rem; top: -4rem; z-index: 1000; padding: .8rem 1.2rem;
+  background: var(--palm); color: var(--cream); transition: top .3s var(--ease-out);
+}
+.skip-link:focus { top: 1rem; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Type primitives */
+.display { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: .86; letter-spacing: -0.005em; }
+.serif { font-family: var(--f-serif); font-weight: 350; letter-spacing: -0.02em; }
+.serif-it { font-family: var(--f-serif); font-style: italic; font-weight: 300; letter-spacing: -0.02em; }
+.eyebrow {
+  font-family: var(--f-sans); font-size: .76rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: .6em;
+}
+.eyebrow::before { content: ''; width: .5em; height: .5em; border-radius: 50%; background: currentColor; }
+.lead { font-size: var(--fs-lead); line-height: 1.5; max-width: 34ch; }
+
+/* ---------- Reveal system ---------- */
+/* Content is visible by default; JS adds .rv-ready on <html> so nothing is ever hidden without JS. */
+.rv-ready [data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease-out), transform 1.1s var(--ease-out); transition-delay: var(--d, 0s); }
+.rv-ready [data-reveal].is-in { opacity: 1; transform: none; }
+.rv-ready [data-reveal='fade'] { transform: none; }
+.rv-ready [data-reveal='scale'] { transform: scale(.94); }
+.rv-ready [data-reveal='scale'].is-in { transform: none; }
+
+/* Masked line reveal: each line slides up from its own clip */
+.line-mask { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.line-mask > span { display: block; }
+.rv-ready .lines .line-mask > span { transform: translateY(105%); transition: transform 1.15s var(--ease-out); transition-delay: calc(var(--d, 0s) + var(--i, 0) * .08s); }
+.rv-ready .lines.is-in .line-mask > span { transform: none; }
+
+/* Image clip reveal */
+.rv-ready .img-reveal { clip-path: inset(18% 8% 18% 8%); transition: clip-path 1.4s var(--ease-out); }
+.rv-ready .img-reveal > img, .rv-ready .img-reveal > picture { transform: scale(1.25); transition: transform 1.8s var(--ease-out); }
+.rv-ready .img-reveal.is-in { clip-path: inset(0 0 0 0); }
+.rv-ready .img-reveal.is-in > img, .rv-ready .img-reveal.is-in > picture { transform: scale(1); }
+
+.cover { width: 100%; height: 100%; object-fit: cover; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
+  .rv-ready [data-reveal], .rv-ready .lines .line-mask > span { opacity: 1 !important; transform: none !important; }
+  .rv-ready .img-reveal { clip-path: none !important; }
+}

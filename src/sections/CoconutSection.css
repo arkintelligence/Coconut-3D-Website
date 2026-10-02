@@ -1,0 +1,17 @@
+.coco { --cp: 0; position: relative; background: var(--palm); color: var(--cream); padding: var(--section) 0; overflow: hidden; }
+.coco__ring { position: absolute; left: -20vw; top: 50%; width: 80vw; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(246,239,226,.12); transform: translateY(-50%) scale(calc(.8 + var(--cp) * .4)); }
+.coco__grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 7rem); align-items: center; }
+.coco__visual { position: relative; aspect-ratio: 1; }
+.coco__whole { position: absolute; inset: 0; margin: auto; width: 86%; transform: rotate(calc(-20deg + var(--cp) * 40deg)) translateY(calc((0.5 - var(--cp)) * 80px)); filter: drop-shadow(0 50px 50px rgba(0,0,0,.35)); }
+.coco__half { position: absolute; width: 44%; right: -4%; bottom: -2%; transform: translateY(calc((0.5 - var(--cp)) * -160px)) rotate(-12deg); filter: drop-shadow(0 30px 30px rgba(0,0,0,.3)); }
+.coco__title { font-size: var(--fs-h2); line-height: 1; margin: 1.4rem 0 2.4rem; }
+.coco__title em { color: var(--lime); }
+.coco__list { margin: 0; display: grid; }
+.coco__item { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.4rem; padding: 1.2rem 0; border-top: 1px solid rgba(246,239,226,.18); }
+.coco__item dt { font-size: 1.5rem; color: var(--lime); }
+.coco__item dd { margin: 0; opacity: .85; }
+@media (max-width: 860px) {
+  .coco__grid { grid-template-columns: 1fr; }
+  .coco__visual { width: min(80vw, 420px); margin: 0 auto; }
+  .coco__item { grid-template-columns: 1fr; gap: .3rem; }
+}

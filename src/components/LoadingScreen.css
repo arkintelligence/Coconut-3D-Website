@@ -1,0 +1,20 @@
+.loader {
+  position: fixed; inset: 0; z-index: 1150; background: #40351f; color: #ffe386;
+  display: grid; place-items: center;
+}
+/* The brown cover is handed to the curtain (see Curtain.css), which grows yellow and splits open. */
+.loader.is-leaving { background: transparent; pointer-events: none; }
+.loader .curtain { z-index: -1; }
+.loader__palm { position: relative; width: clamp(96px, 10.5vw, 156px); aspect-ratio: 554/588; color: #ffe386; transform-origin: 54% 95%; animation: ldr-palm-breathe 2.2s ease-in-out infinite; }
+.loader__palm img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.loader__palm-base { opacity: .19; filter: brightness(0) saturate(100%) invert(82%) sepia(41%) saturate(586%) hue-rotate(352deg) brightness(104%); }
+.loader__palm-fill { position: absolute; inset: 0; overflow: hidden; transition: clip-path .16s linear; }
+.loader__palm-fill img { filter: brightness(0) saturate(100%) invert(82%) sepia(41%) saturate(586%) hue-rotate(352deg) brightness(104%); }
+.loader.is-leaving .loader__palm { transform: scale(.92); opacity: 0; transition: transform .65s ease, opacity .45s ease; }
+.loader__count {
+  position: absolute; left: clamp(1.4rem, 2.5vw, 3rem); bottom: clamp(1.2rem, 2.2vw, 2.6rem);
+  font-family: var(--f-khand); font-size: clamp(4rem, 7.2vw, 7.4rem); font-weight: 600; line-height: .78; letter-spacing: -.05em; display: flex; align-items: flex-end; gap: .08em;
+}
+.loader__count small { margin-bottom: .05em; font-size: .22em; font-weight: 500; letter-spacing: 0; }
+.loader.is-leaving .loader__count { transform: translateY(35%); opacity: 0; transition: transform .55s ease, opacity .4s ease; }
+@keyframes ldr-palm-breathe { 0%,100% { transform: rotate(-.8deg) scale(.995); } 50% { transform: rotate(.8deg) scale(1.01); } }

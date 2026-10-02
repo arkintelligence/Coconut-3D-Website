@@ -1,0 +1,45 @@
+:root {
+  /* Palette */
+  --cream: #f8f8f0;
+  --cream-2: #efe5d2;
+  --sand: #e3d3b4;
+  --husk: #6b4a2f;
+  --husk-deep: #40351f;
+  --palm: #1f3b2a;
+  --palm-2: #2f5a3a;
+  --leaf: #3f7d4e;
+  --lime: #c9dc7a;
+  --ink: #40351f;
+  --ink-soft: #4a5a4f;
+  --white: #fffdf8;
+
+  /* Type */
+  --f-display: 'Anton', 'Impact', 'Haettenschweiler', sans-serif;
+  --f-serif: 'Fraunces', 'Georgia', serif;
+  --f-sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --f-khand: 'Khand', 'Anton', sans-serif;
+  --f-hand: 'Patrick Hand', cursive;
+
+  --fs-mega: clamp(4.5rem, 17vw, 19rem);
+  --fs-hero: clamp(3.4rem, 9.6vw, 10.5rem);
+  --fs-h1: clamp(2.8rem, 7vw, 7.5rem);
+  --fs-h2: clamp(2.2rem, 5vw, 5rem);
+  --fs-h3: clamp(1.5rem, 2.6vw, 2.4rem);
+  --fs-lead: clamp(1.08rem, 1.35vw, 1.35rem);
+  --fs-body: clamp(0.98rem, 1.05vw, 1.06rem);
+  --fs-small: 0.82rem;
+
+  /* Space */
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --section: clamp(5rem, 12vw, 11rem);
+  --maxw: 1680px;
+  --header-h: 76px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur: 0.9s;
+}
+@media (max-width: 760px) {
+  :root { --header-h: 64px; }
+}

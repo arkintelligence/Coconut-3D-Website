@@ -1,0 +1,14 @@
+.shop { background: var(--cream); color: var(--palm); padding: clamp(2rem, 4vw, 4rem) 0 0; }
+.shop__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: clamp(2.4rem, 5vw, 4rem); }
+.shop__title { font-size: var(--fs-h1); margin-top: 1.2rem; }
+.shop__title em { text-transform: none; color: var(--husk); }
+.shop__aside { max-width: 340px; display: grid; gap: 1.2rem; justify-items: start; color: var(--ink); }
+.shop__row { display: grid; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px) {
+  .shop__head { flex-direction: column; align-items: flex-start; }
+  .shop__row { grid-template-columns: 1fr; }
+}
+@media (min-width: 640px) and (max-width: 960px) {
+  .shop__row .pcard--panel { grid-template-columns: 1fr 1.1fr; grid-template-rows: auto; align-items: center; }
+  .shop__row .pcard--panel .pcard__visual { height: 420px; }
+}

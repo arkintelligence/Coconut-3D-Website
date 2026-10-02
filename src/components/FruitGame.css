@@ -1,0 +1,22 @@
+.fgame { position: relative; color: var(--cream); }
+.fgame__hud { display: flex; justify-content: flex-end; padding: 0 0 1rem; }
+.fgame__hud > div:not(.fgame__ctrls) { display: grid; }
+.fgame__k { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; opacity: .6; }
+.fgame__v { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.fgame__ctrls { margin-left: auto; display: flex; gap: .5rem; }
+.fgame__btn { height: 44px; padding: 0 1.2rem; border-radius: 999px; box-shadow: inset 0 0 0 1.5px currentColor; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.fgame__btn:hover { background: var(--cream); color: var(--palm); }
+.fgame__stage {
+  position: relative; height: clamp(460px, 76vh, 820px); overflow: hidden;
+  background: radial-gradient(120% 80% at 50% 110%, rgba(255,227,134,.1), transparent 60%), #40351f;
+}
+.fgame__canvas { position: absolute; inset: 0; cursor: crosshair; touch-action: pan-y; }
+.fgame--playing .fgame__canvas { touch-action: none; cursor: none; }
+.fgame__overlay { background: radial-gradient(50% 45% at 50% 50%, rgba(23,48,34,.75), transparent); position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; text-align: center; gap: 1rem; padding: 1.5rem; pointer-events: none; }
+.fgame__overlay > * { pointer-events: auto; }
+.fgame__overlay--dim { background: rgba(23, 48, 34, .62); backdrop-filter: blur(3px); }
+.fgame__title { font-size: clamp(3rem, 9vw, 8rem); }
+.fgame__sub { max-width: 40ch; opacity: .8; }
+.fgame__play { margin-top: .6rem; height: 60px; padding: 0 2rem; border-radius: 999px; background: var(--lime); color: var(--palm); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .86rem; transition: transform .4s var(--ease-out); }
+.fgame__play:hover { transform: scale(1.05) rotate(-2deg); }
+@media (max-width: 600px) { .fgame__ctrls { margin-left: 0; width: 100%; } }

@@ -1,0 +1,86 @@
+.flv { --flv-p: 0; position: relative; overflow: hidden; background: #463721; color: #463721; }
+.flv__lead { position: relative; height: 128vh; overflow: hidden; background: #f8f8f0; }
+.flv__lead h2 { position: absolute; left: 50%; top: 47%; z-index: 1; width: 100%; transform: translate(-50%,calc(-50% + var(--flv-p) * -18vh)); color: #463721; font-family: var(--f-khand); font-size: 12.8vw; font-weight: 600; line-height: .78; letter-spacing: -.055em; text-align: center; text-transform: uppercase; will-change: transform; }
+.flv__lead-can { position: absolute; inset: 20% 39% 23%; z-index: 2; transform: translateY(calc(var(--flv-p) * -12vh)) rotate(calc(var(--flv-p) * 12deg)); will-change: transform; }
+.reference-can canvas { width: 100% !important; height: 100% !important; }
+.flv__scallop { position: absolute; z-index: 3; left: -8vw; right: -8vw; bottom: -1px; height: 12vw; background: radial-gradient(circle at 9vw 12vw,#463721 0 9vw,transparent 9.1vw) 0 0/18vw 12vw repeat-x; }
+.flv__statement{position:relative;height:145vh;background:#463721;color:#f8f8f0}.flv__statement-inner{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;padding:5vw}.flv__statement-inner::before,.flv__statement-inner::after{content:'';position:absolute;width:25vw;aspect-ratio:1;border:4px solid rgba(255,227,134,.18);transform:rotate(calc(var(--flv-p) * 100deg));clip-path:polygon(50% 0,65% 32%,100% 40%,72% 62%,78% 100%,50% 76%,20% 100%,27% 62%,0 40%,35% 32%)}.flv__statement-inner::before{left:-7vw;bottom:-6vw}.flv__statement-inner::after{right:-5vw;top:8vw;transform:rotate(calc(var(--flv-p) * -120deg))}.flv__statement p{position:relative;z-index:1;font-family:var(--f-khand);font-size:7.6vw;font-weight:600;line-height:.82;text-align:center;text-transform:uppercase}.flv__statement>div>img{position:absolute;left:6vw;top:20vh;width:9vw;filter:sepia(1) saturate(1.5)}.flv__statement small{position:absolute;right:12vw;bottom:10vh;font-family:var(--f-hand);font-size:1.3vw;color:#ffe386;transform:rotate(-8deg)}.flv__words{position:relative;display:inline-grid;min-width:3.7em;padding:.02em .15em;background:#ffe386;color:#463721;border-radius:.12em;overflow:hidden;vertical-align:bottom}.flv__words b{grid-area:1/1;opacity:0;transform:translateY(110%);transition:.6s var(--ease-out)}.flv[data-word=pre] .flv__words b:nth-child(1),.flv[data-word=fresh] .flv__words b:nth-child(2),.flv[data-word=clean] .flv__words b:nth-child(3){opacity:1;transform:none}.flv__cards-head{display:flex;align-items:end;justify-content:space-between;padding:7vw 3vw 1vw;color:#f8f8f0}.flv__cards-head h2{font-family:var(--f-khand);font-size:9vw;line-height:.78;text-transform:uppercase}.flv__cards-head span{font-family:var(--f-hand);font-size:1.4vw}.flv__card{transform:translateY(calc((1 - var(--flv-p)) * 80px));transition:transform .9s var(--ease-out)}
+.flv__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6vw; padding: 7vw 3vw 8vw; }
+.flv__card { position: relative; min-width: 0; padding: .8vw; background: #f8f8f0; }
+.flv__art { position: relative; height: 39vw; max-height: 650px; overflow: hidden; background: var(--card-bg); }
+.flv__art .reference-can { position: absolute; inset: 0 12%; transition: transform .8s var(--ease-out); }
+.flv__card:hover .flv__art .reference-can { transform: scale(1.035) rotateY(360deg); }
+.flv__caption { min-height: 4.7vw; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7vw .35vw 0; }
+.flv__caption h3 { font-family: var(--f-hand); font-size: 1.55vw; font-weight: 400; }
+.flv__caption button { font-family: var(--f-hand); font-size: 3.5vw; font-weight: 300; line-height: .7; }
+.flv__picker { position: absolute; z-index: 8; right: 1.2vw; bottom: 5.4vw; width: 16vw; min-width: 230px; padding: .7vw; border-radius: .7vw; background: #553f22; color: #ece2b1; box-shadow: 0 1rem 2rem rgba(0,0,0,.24); font-family: var(--f-hand); }
+.flv__picker > p { margin: .15rem .35rem .45rem; }
+.flv__picker > button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .55rem .4rem; border-radius: .45rem; text-align: left; }
+.flv__picker > button:hover { background: rgba(255,255,255,.11); }
+.flv__picker span { display: grid; } .flv__picker strong { font-size: 1rem; font-weight: 400; } .flv__picker small { opacity: .5; font-size: .75rem; } .flv__picker b { font-weight: 400; white-space: nowrap; }
+.flv__picker .flv__view { display: block; margin-top: .2rem; border-top: 1px solid rgba(236,226,177,.2); border-radius: 0; text-align: center; opacity: .7; }
+@media (max-width:760px) { .flv__lead { height: 82vh; } .flv__lead h2 { font-size: 22vw; } .flv__lead-can { inset: 8% 17% 13%; } .flv__scallop { height: 23vw; background-size: 34vw 23vw; background-position: 0 0; } .flv__cards { grid-template-columns: minmax(0,1fr); gap: 1.25rem; overflow: visible; scroll-snap-type: none; padding: 4rem 1rem; } .flv__card { width: 100%; padding: .6rem; scroll-snap-align: none; } .flv__art { height: 112vw; max-height: 34rem; } .flv__caption { min-height: 4rem; padding: .65rem .2rem 0; } .flv__caption h3 { font-size: 1.4rem; } .flv__caption button { font-size: 3.2rem; } .flv__picker { right: .8rem; bottom: 4.5rem; width: calc(100% - 1.6rem); padding: .7rem; border-radius: .8rem; } }
+@media(max-width:760px){.flv__statement{height:120vh}.flv__statement p{font-size:12.5vw}.flv__statement>div>img{width:18vw}.flv__statement small{right:1rem;font-size:.9rem}.flv__cards-head{padding:4rem 1rem 0}.flv__cards-head h2{font-size:18vw}.flv__cards-head span{font-size:.9rem}.flv__card{transform:none}}
+
+/* Recording-matched continuous word reel and flavour-card reveal. */
+.flv__words{display:inline-block;width:3.7em;height:.92em;min-width:0;padding:0 .15em;vertical-align:bottom}
+.flv__words>span{position:absolute;inset:0;display:flex;flex-direction:column;transform:translateY(calc(var(--word-step) * -.92em));will-change:transform}
+.flv__words b{display:flex;flex:0 0 .92em;align-items:center;justify-content:center;height:.92em;opacity:1;transform:none;transition:none}
+.flv__card{opacity:0;transform:translateY(120px) rotate(calc((var(--i) - 1) * 2deg));transition:opacity .75s calc(var(--i) * .12s),transform 1.05s calc(var(--i) * .12s) cubic-bezier(.16,1,.3,1)}
+.flv__cards.is-visible .flv__card{opacity:1;transform:none}
+.flv__art{transition:background-color .65s cubic-bezier(.16,1,.3,1)}
+.flv__card:hover .flv__art{background:var(--hover-bg)}
+.flv__art>i{position:absolute;width:42%;aspect-ratio:1;border:3px solid rgba(255,244,190,.5);border-radius:48% 52% 44% 56%;opacity:0;transform:translate(-40%,-35%) rotate(-25deg) scale(.7);transition:opacity .45s,transform .8s cubic-bezier(.16,1,.3,1)}
+.flv__art>i:nth-child(2){right:-8%;bottom:-12%;transform:translate(35%,30%) rotate(35deg) scale(.7)}
+.flv__card:hover .flv__art>i{opacity:1;transform:translate(-10%,-8%) rotate(15deg) scale(1)}
+.flv__card:hover .flv__art>i:nth-child(2){transform:translate(0,0) rotate(-15deg) scale(1)}
+.flv__card:hover .flv__art .reference-can{transform:scale(1.045)}
+
+@media(max-width:760px){.flv__card{opacity:1;transform:none}}
+
+/* Direct coconut-to-can handoff: travel through Keep Sipping and disappear below the wave. */
+.flv__lead-can{transform:translateY(calc(-34vh + var(--flv-p) * 162vh)) rotateY(calc(var(--flv-p) * 720deg)) rotate(calc(-8deg + var(--flv-p) * 12deg));will-change:transform}
+.flv__statement p{font-size:5.85vw;line-height:.88}
+.flv[data-word=pre] .flv__words{background:#ffe386;color:#463721}
+.flv[data-word=fresh] .flv__words{background:#c99b2c;color:#fffaf0}
+.flv[data-word=clean] .flv__words{background:#9aa638;color:#fffaf0}
+.flv__words{transition:background-color .45s,color .45s}
+
+/* The frames stay planted; each can is thrown in from above with a staggered landing. */
+.flv__card{opacity:1;transform:none;transition:none}
+.flv__art .reference-can{transform:translateY(-125%) rotate(-16deg) scale(.88);transition:transform 1.05s calc(var(--i) * .14s) cubic-bezier(.2,1.32,.35,1)}
+.flv__card.is-visible .flv__art .reference-can{transform:translateY(0) rotate(0) scale(1)}
+.flv__card.is-visible:hover .flv__art .reference-can{transform:translateY(0) scale(1.045)}
+.flv__art>i{border-color:#ffe386;border-radius:18% 82% 28% 72% / 64% 28% 72% 36%;box-shadow:0 0 0 2px rgba(255,227,134,.12)}
+.flv__card:hover .flv__art>i{animation:flavour-slice-float 2.4s ease-in-out infinite alternate}
+.flv__card:hover .flv__art>i:nth-child(2){animation-delay:-1.1s}
+@keyframes flavour-slice-float{to{translate:12px -9px;rotate:8deg}}
+
+/* Close the brown flavour chapter with the same scalloped wave used to open it. */
+.flv::after{content:'';position:absolute;z-index:3;left:-8vw;right:-8vw;bottom:-1px;height:10vw;background:radial-gradient(circle at 9vw 0,#f8f8f0 0 9vw,transparent 9.1vw) 0 0/18vw 10vw repeat-x;pointer-events:none}
+.flv__cards{padding-bottom:13vw}
+
+@media(max-width:760px){.flv__lead-can{transform:translateY(calc(-24vh + var(--flv-p) * 126vh)) rotateY(calc(var(--flv-p) * 720deg)) rotate(calc(-8deg + var(--flv-p) * 12deg))}.flv__statement p{font-size:10.4vw}.flv::after{height:20vw;background-size:34vw 20vw}.flv__cards{padding-bottom:24vw}}
+
+/* Restore the compact product-card proportions. */
+.flv__art{height:39vw;max-height:650px}
+.flv__art .reference-can{inset:0 12%}
+@media(max-width:760px){.flv__art{height:112vw}.flv__art .reference-can{inset:0 11%}}
+.flv__cutout{position:absolute;left:50%;top:50%;z-index:1;width:auto;height:88%;object-fit:contain;filter:drop-shadow(0 1.4vw 1vw rgba(48,35,20,.2));transform:translate(-50%,-155%) rotate(-14deg) scale(.9);transition:transform 1.05s calc(var(--i) * .14s) cubic-bezier(.2,1.32,.35,1),filter .45s}
+.flv__card.is-visible .flv__cutout{transform:translate(-50%,-50%) rotate(0) scale(1)}
+.flv__card:hover .flv__cutout{filter:drop-shadow(0 1.7vw 1.2vw rgba(48,35,20,.28));transform:translate(-50%,-50%) rotateY(180deg) rotate(-2deg) scale(1.045)}
+
+/* Tight reference pacing: statement hands directly into the three home cards. */
+.flv__statement{height:112vh}
+.flv__cards-head{padding:4vw 3vw 1vw}
+.flv__cards{padding-top:2vw}
+.flv::after{background-color:#f8f8f0;background-image:radial-gradient(circle at 9vw 0,#463721 0 9vw,transparent 9.1vw);background-position:0 0;background-size:18vw 10vw;background-repeat:repeat-x}
+@media(max-width:760px){.flv__statement{height:108vh}.flv__cards-head{padding-top:2.5rem}.flv::after{background-size:34vw 20vw}}
+
+/* Reference hover: the flavour colour grows out of the centre as a circle (and shrinks back on
+   leave) while the can turns once around and leans; the card itself keeps its base colour. */
+.flv__card:hover .flv__art{background:var(--card-bg)}
+.flv__art::before{content:'';position:absolute;inset:0;z-index:0;background:var(--hover-bg);clip-path:circle(0% at 50% 52%);transition:clip-path .8s cubic-bezier(.6,0,.2,1);pointer-events:none}
+.flv__card:hover .flv__art::before{clip-path:circle(80% at 50% 52%)}
+.flv__art>i{z-index:1}
+.flv__art .reference-can{z-index:2}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6efe2" />
+    <meta name="description" content="Palmo — pure coconut water. Paradise in every sip. Natural electrolytes, zero added sugar." />
+    <title>Palmo — Paradise in every sip</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Khand:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
+    <style>
+      /* Prevents a white flash before React mounts: matches LoadingScreen */
+      html,body{background:#1f3b2a;margin:0}
+      #boot{position:fixed;inset:0;background:#1f3b2a;z-index:9999}
+    </style>
+  </head>
+  <body>
+    <div id="boot" aria-hidden="true"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+.tsec { background: #f8f8f0; color: #40351f; padding: 5vw 0 7vw; overflow: hidden; }
+.tsec__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4vw; }
+.tsec__title { font-family: var(--f-khand); font-size: 9vw; font-weight: 600; line-height: .8; text-transform: uppercase; letter-spacing: -.045em; }
+.tsec__arrows { display: flex; gap: 1vw; }
+.tsec__arrows span { width: 5vw; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: #40351f; color: #f8f8f0; font-size: 2.4vw; }
+.tsec__arrows span:last-child { border: 2px solid #40351f; background: #ffe386; color: #40351f; }
+@media (max-width:760px) { .tsec { padding: 4rem 0; } .tsec__title { font-size: 16vw; } .tsec__arrows span { width: 3rem; font-size: 1.4rem; } }

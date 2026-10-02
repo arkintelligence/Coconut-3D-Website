@@ -1,0 +1,33 @@
+/*
+ * Reference reveal (palmo.co.in, after the loader and between pages):
+ * brown cover holds -> a yellow panel grows out from the centre line until it fills the screen
+ * -> the panel splits down the middle and both halves slide out to the sides, uncovering the page.
+ * --curtain-delay is when the yellow panel starts to grow.
+ */
+.curtain { --curtain-delay: 0s; position: fixed; inset: 0; z-index: 1200; pointer-events: none; overflow: hidden; }
+.curtain__brown { position: absolute; inset: 0; background: #40351f; animation: curtain-brown-off 1ms linear calc(var(--curtain-delay) + .3s) forwards; }
+.curtain__door { position: absolute; top: 0; bottom: 0; width: calc(50% + 1px); background: #ffe386; will-change: clip-path; }
+.curtain__door--l { left: 0; animation: curtain-grow-l .3s cubic-bezier(.55,0,.8,.4) var(--curtain-delay) both, curtain-open-l .42s cubic-bezier(.2,.75,.3,1) calc(var(--curtain-delay) + .3s) forwards; }
+.curtain__door--r { right: 0; animation: curtain-grow-r .3s cubic-bezier(.55,0,.8,.4) var(--curtain-delay) both, curtain-open-r .42s cubic-bezier(.2,.75,.3,1) calc(var(--curtain-delay) + .3s) forwards; }
+@keyframes curtain-brown-off { to { visibility: hidden; } }
+@keyframes curtain-grow-l {
+  0% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+  55% { clip-path: polygon(62% 0, 100% 0, 100% 100%, 64% 100%); }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+@keyframes curtain-grow-r {
+  0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+  55% { clip-path: polygon(0 0, 38% 0, 36% 100%, 0 100%); }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+@keyframes curtain-open-l {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  45% { clip-path: polygon(0 0, 58% 0, 61% 100%, 0 100%); }
+  100% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+}
+@keyframes curtain-open-r {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  45% { clip-path: polygon(42% 0, 100% 0, 100% 100%, 39% 100%); }
+  100% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+}
+@media (prefers-reduced-motion: reduce) { .curtain { display: none; } }

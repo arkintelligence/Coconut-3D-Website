@@ -1,0 +1,10 @@
+.notice { position: fixed; z-index: 80; display: flex; align-items: center; background: #f8f8f0; color: #40351f; border: 2px solid #40351f; box-shadow: 4px 4px 0 #40351f; font-size: .72rem; line-height: 1.15; }
+.notice--gyro { left: 1.15rem; bottom: 1.15rem; gap: .65rem; padding: .55rem .8rem; }
+.notice--gyro img { width: 1.5rem; height: 1.5rem; object-fit: contain; }
+.notice--gyro strong { font-family: var(--f-khand); font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; }
+.notice--gyro button { margin-left: .25rem; font-size: 1rem; opacity: .5; }
+.notice--cookie { left: 50%; bottom: 1.15rem; transform: translateX(-50%); white-space: nowrap; }
+.notice--cookie span { padding: .6rem .8rem; }
+.notice--cookie button { align-self: stretch; padding: .55rem .75rem; border-left: 2px solid #40351f; font-family: var(--f-hand); font-size: .8rem; }
+.notice--cookie button:last-child { background: #40351f; color: #f8f8f0; }
+@media (max-width: 700px) { .notice--gyro { display: none; } .notice--cookie { width: calc(100% - 2rem); justify-content: center; bottom: .8rem; } .notice--cookie span { flex: 1; white-space: normal; } }

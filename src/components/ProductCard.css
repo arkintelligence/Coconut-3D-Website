@@ -1,0 +1,65 @@
+.pcard { position: relative; color: var(--ink); background: var(--bg); overflow: hidden; }
+.pcard__visual { position: relative; display: grid; place-items: center; }
+.pcard__num { position: absolute; top: 1.2rem; left: 1.4rem; font-size: 1.1rem; opacity: .6; }
+.pcard__blob {
+  position: absolute; width: 74%; aspect-ratio: 1; border-radius: 50%; background: var(--c);
+  transition: transform 1s var(--ease-out);
+}
+.pcard__can { position: relative; height: 100%; width: 66%; object-fit: contain; filter: drop-shadow(0 30px 30px rgba(0,0,0,.18)); transition: transform 1s var(--ease-out); transform-origin: 50% 90%; }
+.pcard__can canvas { width: 100% !important; height: 100% !important; }
+.pcard__splash { position: absolute; left: 50%; top: 50%; width: 0; height: 0; }
+.pcard__splash i {
+  position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--c); opacity: 0;
+  transform: rotate(var(--a)) translateX(0);
+}
+.pcard.is-added .pcard__splash i { animation: splash .9s var(--ease-out); }
+@keyframes splash { 0% { opacity: 1; transform: rotate(var(--a)) translateX(30px) scale(1.4); } 100% { opacity: 0; transform: rotate(var(--a)) translateX(190px) scale(.3); } }
+.pcard.is-added .pcard__can { animation: wobble .8s var(--ease-out); }
+@keyframes wobble { 25% { transform: rotate(-6deg) translateY(-14px); } 55% { transform: rotate(4deg); } }
+@media (hover: hover) {
+  .pcard:hover .pcard__blob { transform: scale(1.08); }
+  .pcard:hover .pcard__can { transform: translateY(-12px) rotate(-4deg); }
+}
+.pcard__tag { font-size: 1.1rem; opacity: .8; }
+.pcard__name { font-size: clamp(2.4rem, 4vw, 4rem); margin: .3rem 0 1.2rem; }
+.pcard__desc { max-width: 42ch; margin-bottom: 1.2rem; opacity: .85; }
+.pcard__notes { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.6rem; }
+.pcard__notes li { font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: .35rem .75rem; border-radius: 999px; box-shadow: inset 0 0 0 1px currentColor; }
+.pcard__cta { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.pcard__add {
+  height: 56px; padding: 0 1.6rem; border-radius: 999px; background: var(--ink); color: var(--bg);
+  font-weight: 600; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; flex: 1 1 auto; max-width: 340px;
+  transition: transform .4s var(--ease-out), background .4s;
+}
+.pcard__add:active { transform: scale(.97); }
+.pcard__add-roll { display: block; height: 1.2em; line-height: 1.2; overflow: hidden; }
+.pcard__add-roll > span { display: block; transition: transform .55s var(--ease-out); }
+.pcard.is-added .pcard__add { background: var(--deep); }
+.pcard.is-added .pcard__add-roll > span { transform: translateY(-100%); }
+.pcard__view { font-size: .82rem; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; animation: fadeIn .5s var(--ease-out); }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-6px); } }
+
+/* Panel: tall column on home */
+.pcard--panel { display: grid; grid-template-rows: minmax(340px, 52vh) auto; }
+.pcard--panel .pcard__visual { padding: 2.4rem 0 1rem; }
+.pcard--panel .pcard__can { height: 100%; max-height: 46vh; }
+.pcard--panel .pcard__body { padding: 1.4rem clamp(1.2rem, 2vw, 2rem) 2rem; }
+.pcard--panel .pcard__add { width: 100%; max-width: none; }
+
+/* Row: split layout on flavours page */
+.pcard--row { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 92vh; align-items: center; }
+.pcard--row:nth-child(even) .pcard__visual { order: 2; }
+.pcard--row .pcard__visual { height: 100%; min-height: 70vh; }
+.pcard--row .pcard__can { height: min(70vh, 640px); }
+.pcard--row .pcard__body { padding: clamp(2rem, 6vw, 6rem); max-width: 640px; }
+.pcard--row .pcard__name { font-size: clamp(3rem, 6.4vw, 6.6rem); }
+.pcard--row .pcard__num { font-size: clamp(4rem, 8vw, 8rem); opacity: .14; top: 2rem; left: 2rem; }
+@media (max-width: 860px) {
+  .pcard--row { grid-template-columns: 1fr; min-height: 0; }
+  .pcard--row:nth-child(even) .pcard__visual { order: 0; }
+  .pcard--row .pcard__visual { min-height: 0; height: 62vw; max-height: 480px; padding-top: 2rem; }
+  .pcard--row .pcard__can { height: 100%; }
+  .pcard--row .pcard__body { padding: 1.6rem var(--gutter) 3.4rem; }
+  .pcard--panel { grid-template-rows: 56vw auto; }
+  .pcard--panel .pcard__can { max-height: 100%; }
+}

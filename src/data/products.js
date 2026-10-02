@@ -1,0 +1,92 @@
+// Product + pack data. UI reads everything from here.
+// To use real product photography, set `image` on a product (import it from assets/products).
+export const packs = [
+  { id: 'single', label: 'Single', note: 'One can, one moment', price: 3.5, units: 1 },
+  { id: 'six', label: '6 Pack', note: 'A week of sips', price: 19.32, units: 6 },
+  { id: 'twelve', label: '12 Pack', note: 'Best value - stock the fridge', price: 35.7, units: 12 },
+];
+
+export const products = [
+  {
+    id: 'natural-pure',
+    name: 'Natural Pure',
+    short: 'Pure',
+    fruit: 'coconut',
+    tagline: 'Just the coconut. Nothing to hide.',
+    description: 'Water from one young green coconut, chilled and sealed. Light, faintly sweet and clean on the finish — the original everything else is built on.',
+    notes: ['Clean', 'Light', 'Nutty'],
+    color: '#9fbf8a',
+    deep: '#2f5a3a',
+    ink: '#16301f',
+    bg: '#e4eed8',
+  },
+  {
+    id: 'golden-pineapple',
+    name: 'Golden Pineapple',
+    short: 'Pineapple',
+    fruit: 'pineapple',
+    tagline: 'Sun-ripe and bright.',
+    description: 'Coconut water lifted with cold-pressed golden pineapple. Bright acidity up front, a soft tropical sweetness behind it.',
+    notes: ['Bright', 'Zesty', 'Tropical'],
+    color: '#f2c14e',
+    deep: '#a8700c',
+    ink: '#3d2a05',
+    bg: '#fbefc8',
+  },
+  {
+    id: 'ruby-watermelon',
+    name: 'Ruby Watermelon',
+    short: 'Watermelon',
+    fruit: 'watermelon',
+    tagline: 'Summer, poured cold.',
+    description: 'Ripe red watermelon pressed into fresh coconut water. Juicy, crisp and built for the hottest afternoon of the year.',
+    notes: ['Juicy', 'Crisp', 'Cooling'],
+    color: '#ea5b63',
+    deep: '#9c1f2c',
+    ink: '#3e0b12',
+    bg: '#fbd9d6',
+  },
+  {
+    id: 'tropical-guava',
+    name: 'Tropical Guava',
+    short: 'Guava',
+    fruit: 'guava',
+    tagline: 'Pink, fragrant, unmistakable.',
+    description: 'Pink guava folded into coconut water for a perfumed, rounded sip with a gentle tang at the end.',
+    notes: ['Floral', 'Rounded', 'Tangy'],
+    color: '#f08a8f',
+    deep: '#b2434c',
+    ink: '#40141a',
+    bg: '#fde0dc',
+  },
+  {
+    id: 'lush-lychee',
+    name: 'Lush Lychee',
+    short: 'Lychee',
+    fruit: 'lychee',
+    tagline: 'Delicate and rose-soft.',
+    description: 'Lychee essence over pure coconut water — delicate, rose-like and quietly sweet. The calm one in the family.',
+    notes: ['Delicate', 'Rosy', 'Silky'],
+    color: '#e9b4c3',
+    deep: '#9a4f67',
+    ink: '#3a1623',
+    bg: '#f8e6ea',
+  },
+  {
+    id: 'alphonso-mango',
+    name: 'Alphonso Mango',
+    short: 'Mango',
+    fruit: 'mango',
+    tagline: 'The king of mangoes, in a can.',
+    description: 'Alphonso mango pulp meets fresh coconut water. Lush, golden and rich without a grain of added sugar.',
+    notes: ['Lush', 'Golden', 'Rich'],
+    color: '#f59e2b',
+    deep: '#b45f06',
+    ink: '#3e2002',
+    bg: '#fde3c1',
+  },
+];
+
+export const featuredIds = ['natural-pure', 'golden-pineapple', 'ruby-watermelon'];
+export const getProduct = (id) => products.find((p) => p.id === id);
+export const getPack = (id) => packs.find((p) => p.id === id);

@@ -1,0 +1,26 @@
+.btn {
+  --bg: var(--palm); --fg: var(--cream); --dot: var(--lime); --dotfg: var(--palm);
+  position: relative; display: inline-flex; align-items: center; gap: .9rem;
+  height: 56px; padding: 0 .45rem 0 1.6rem; border-radius: 999px;
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-sans); font-weight: 600; font-size: .84rem; letter-spacing: .14em; text-transform: uppercase;
+  transition: background .5s var(--ease-out), color .5s var(--ease-out), transform .5s var(--ease-out);
+  white-space: nowrap;
+}
+.btn--light { --bg: var(--cream); --fg: var(--palm); --dot: var(--palm); --dotfg: var(--cream); }
+.btn--ghost { --bg: transparent; --fg: currentColor; --dot: currentColor; --dotfg: var(--cream); box-shadow: inset 0 0 0 1.5px currentColor; }
+.btn--ghost .btn__dot svg { color: var(--palm); }
+.btn--lime { --bg: var(--lime); --fg: var(--palm); --dot: var(--palm); --dotfg: var(--lime); }
+.btn--lg { height: 64px; font-size: .9rem; padding-left: 2rem; }
+.btn__roll { position: relative; display: block; height: 1.2em; overflow: hidden; line-height: 1.2; }
+.btn__roll > span { display: block; transition: transform .6s var(--ease-out); }
+.btn__dot {
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--dot); color: var(--dotfg); transition: transform .6s var(--ease-out);
+}
+@media (hover: hover) {
+  .btn:hover .btn__roll > span { transform: translateY(-100%); }
+  .btn:hover .btn__dot { transform: rotate(-45deg) scale(1.06); }
+}
+.btn:active { transform: scale(.97); }
+.btn[disabled] { opacity: .5; pointer-events: none; }

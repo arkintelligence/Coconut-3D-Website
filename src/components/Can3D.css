@@ -1,0 +1,2 @@
+.can3d { position: absolute; inset: 0; }
+.can3d canvas { width: 100% !important; height: 100% !important; }
